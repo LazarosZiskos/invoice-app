@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -53,6 +52,7 @@ export default async function Login() {
     </>
   );
 }
+
 function Auth() {
   throw new Error("Function not implemented.");
 }
