@@ -11,6 +11,12 @@ importers:
       '@auth/prisma-adapter':
         specifier: ^2.9.1
         version: 2.9.1(@prisma/client@6.8.2(prisma@6.8.2(typescript@5.8.3))(typescript@5.8.3))(nodemailer@7.0.3)
+      '@conform-to/react':
+        specifier: ^1.6.0
+        version: 1.6.0(react@19.1.0)
+      '@conform-to/zod':
+        specifier: ^1.6.0
+        version: 1.6.0(zod@3.25.30)
       '@hookform/resolvers':
         specifier: ^5.0.1
         version: 5.0.1(react-hook-form@7.56.4(react@19.1.0))
@@ -125,6 +131,19 @@ packages:
     resolution: {integrity: sha512-0ZfjOPt3Ci8yx8SMCydAuBAjR/exI/8SAr6JDVYtqDFhm0JaV1XuHYgEzgzXZZfW2+WKC29LowCWxdCjoAz9kQ==}
     peerDependencies:
       '@prisma/client': '>=2.26.0 || >=3 || >=4 || >=5 || >=6'
+
+  '@conform-to/dom@1.6.0':
+    resolution: {integrity: sha512-+eww0JbVsZ4W07yLiJHD5j7JnTztjJPw5Z1dRtSRxmFP4quy9Tuc5RRevghT3wgxbbg0Z1v3sxSOutW3TgLTFQ==}
+
+  '@conform-to/react@1.6.0':
+    resolution: {integrity: sha512-ZPqlBnrauU+IczG8EZCT7Rn3ecGZFww8axmOb6GIM8uDZ7UkPlnFc3zgFKbqsThD31M8hr2BdwSxQ0yKIqxNXw==}
+    peerDependencies:
+      react: '>=18'
+
+  '@conform-to/zod@1.6.0':
+    resolution: {integrity: sha512-NF9OqarwTYGCwj6yTXpGUa/h10WsiO8njSp+WXAnKhMJDZmwweNlSHX0OGZ9tHkiIARWyzP1sxQB9OIF0lAL5A==}
+    peerDependencies:
+      zod: ^3.21.0
 
   '@emnapi/core@1.4.3':
     resolution: {integrity: sha512-4m62DuCE07lw01soJwPiBGC0nAww0Q+RY70VZ+n49yDIO13yyinhbWCeNnaob0lakDtWQzSdtNWzJeOJt2ma+g==}
@@ -2354,6 +2373,18 @@ snapshots:
       - '@simplewebauthn/browser'
       - '@simplewebauthn/server'
       - nodemailer
+
+  '@conform-to/dom@1.6.0': {}
+
+  '@conform-to/react@1.6.0(react@19.1.0)':
+    dependencies:
+      '@conform-to/dom': 1.6.0
+      react: 19.1.0
+
+  '@conform-to/zod@1.6.0(zod@3.25.30)':
+    dependencies:
+      '@conform-to/dom': 1.6.0
+      zod: 3.25.30
 
   '@emnapi/core@1.4.3':
     dependencies:
