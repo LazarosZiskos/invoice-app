@@ -61,9 +61,12 @@ export async function createInvoice(prevstate: any, formData: FormData) {
             InvoiceItemQuantity: submission.value.invoiceItemQuantity,
             InvoiceItemRate: submission.value.invoiceItemRate,
             note: submission.value.note,
+            userId: session.user?.id
         }
     })
 
+
+    return redirect("/dashboard/invoices")
 
 
 }

@@ -50,6 +50,11 @@ export function CreateInvoice() {
             name={fields.date.name}
             value={selectedDate.toISOString()}
           />
+          <input
+            type="hidden"
+            name={fields.total.name}
+            value={totalAmountCalculation}
+          />
 
           <div className="flex flex-col gap-1 w-fit mb-6">
             <div className="flex items-center gap-4">
