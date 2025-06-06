@@ -49,7 +49,10 @@ export function InvoiceActions({ id }: iAppProps) {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link href="/" className="flex items-center">
+            <Link
+              href={`/dashboard/invoices/${id}/delete`}
+              className="flex items-center"
+            >
               <Trash className="size-4 mr-2" /> Delete Invoice
             </Link>
           </DropdownMenuItem>
