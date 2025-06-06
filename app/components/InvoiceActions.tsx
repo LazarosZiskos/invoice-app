@@ -18,9 +18,10 @@ import Link from "next/link";
 
 interface iAppProps {
   id: string;
+  status: string;
 }
 
-export function InvoiceActions({ id }: iAppProps) {
+export function InvoiceActions({ id, status }: iAppProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -39,7 +40,11 @@ export function InvoiceActions({ id }: iAppProps) {
             </Link>
           </DropdownMenuItem>
           <DropdownMenuItem>
-            <Link href="/" className="flex items-center">
+            <Link
+              href={`/api/invoice/${id}`}
+              target="_blank"
+              className="flex items-center"
+            >
               <DownloadCloud className="size-4 mr-2" /> Download Invoice
             </Link>
           </DropdownMenuItem>
@@ -56,11 +61,16 @@ export function InvoiceActions({ id }: iAppProps) {
               <Trash className="size-4 mr-2" /> Delete Invoice
             </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>
-            <Link href="/" className="flex items-center">
-              <CheckCircle className="size-4 mr-2" /> Mark as Paid
-            </Link>
-          </DropdownMenuItem>
+          {status !== "PAID" && (
+            <DropdownMenuItem>
+              <Link
+                href={`/dashboard/invoices/${id}/paid`}
+                className="flex items-center"
+              >
+                <CheckCircle className="size-4 mr-2" /> Mark as Paid
+              </Link>
+            </DropdownMenuItem>
+          )}
         </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
