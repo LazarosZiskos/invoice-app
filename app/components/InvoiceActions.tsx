@@ -16,7 +16,11 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 
-export function InvoiceActions() {
+interface iAppProps {
+  id: string;
+}
+
+export function InvoiceActions({ id }: iAppProps) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -27,7 +31,10 @@ export function InvoiceActions() {
       <DropdownMenuContent className="w-56" align="end">
         <DropdownMenuGroup>
           <DropdownMenuItem>
-            <Link href="/" className="flex items-center">
+            <Link
+              href={`/dashboard/invoices/${id}`}
+              className="flex items-center"
+            >
               <Pencil className="size-4 mr-2" /> Edit Invoice
             </Link>
           </DropdownMenuItem>

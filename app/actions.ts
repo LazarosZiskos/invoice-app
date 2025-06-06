@@ -92,3 +92,43 @@ export async function createInvoice(prevstate: any, formData: FormData) {
 
   return redirect("/dashboard/invoices");
 }
+
+export async function editInvoice(prevState: any, formdata: FormData) {
+  const session = await requireUser();
+
+  const submission = parseWithZod(formdata, {
+    schema: invoiceSchema,
+  });
+
+  if (submission.status !== "success") {
+    return submission.reply();
+  }
+
+  const data = await prisma.invoice.update({
+    where: {
+      id: formdata.get("id") as string,
+      userId: session.user?.id,
+    },
+    data: {
+      clientAddress: submission.value.clientAddress,
+      clientEmail: submission.value.clientEmail,
+      clientName: submission.value.clientName,
+      invoiceName: submission.value.invoiceName,
+      date: submission.value.date, //string
+      dueDate: submission.value.dueDate,
+      status: submission.value.status,
+      total: submission.value.total,
+      fromAddress: submission.value.fromAddress,
+      fromEmail: submission.value.fromAddress,
+      fromName: submission.value.fromName,
+      currency: submission.value.currency,
+      invoiceNumber: submission.value.invoiceNumber,
+      invoiceItemDescription: submission.value.invoiceItemDescription,
+      InvoiceItemQuantity: submission.value.invoiceItemQuantity,
+      InvoiceItemRate: submission.value.invoiceItemRate,
+      note: submission.value.note,
+    },
+  });
+
+  return redirect("/dashboard/invoices");
+}
