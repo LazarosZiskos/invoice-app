@@ -19,7 +19,19 @@ import { invoiceSchema } from "../utils/zodSchemas";
 import { createInvoice } from "../actions";
 import { formatCurrency } from "../utils/formatCurrency";
 
-export function CreateInvoice() {
+interface iAppProps {
+  firstName: string;
+  lastName: string;
+  address: string;
+  email: string;
+}
+
+export function CreateInvoice({
+  address,
+  email,
+  firstName,
+  lastName,
+}: iAppProps) {
   const [lastResult, action] = useActionState(createInvoice, undefined);
   const [form, fields] = useForm({
     lastResult,
@@ -119,7 +131,7 @@ export function CreateInvoice() {
                   placeholder="Your Name / Company Name"
                   name={fields.fromName.name}
                   key={fields.fromName.key}
-                  defaultValue={fields.fromName.initialValue}
+                  defaultValue={firstName + " " + lastName}
                 />
                 <p className="text-sm text-red-500">{fields.fromName.errors}</p>
 
@@ -127,7 +139,7 @@ export function CreateInvoice() {
                   placeholder="Your Email"
                   name={fields.fromEmail.name}
                   key={fields.fromEmail.key}
-                  defaultValue={fields.fromEmail.initialValue}
+                  defaultValue={email}
                 />
                 <p className="text-sm text-red-500">
                   {fields.fromEmail.errors}
@@ -137,7 +149,7 @@ export function CreateInvoice() {
                   placeholder="Your Address"
                   name={fields.fromAddress.name}
                   key={fields.fromAddress.key}
-                  defaultValue={fields.fromAddress.initialValue}
+                  defaultValue={address}
                 />
                 <p className="text-sm text-red-500">
                   {fields.fromAddress.errors}

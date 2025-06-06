@@ -1,6 +1,7 @@
 import { prisma } from "@/app/utils/db";
 import { NextResponse } from "next/server";
 import jsPDF from "jspdf";
+import { formatCurrency } from "@/app/utils/formatCurrency";
 
 export async function GET(
   request: Request,
@@ -32,6 +33,7 @@ export async function GET(
       InvoiceItemQuantity: true,
       InvoiceItemRate: true,
       note: true,
+      fromAddress: true,
     },
   });
 
@@ -56,6 +58,84 @@ export async function GET(
   //set header
   pdf.setFontSize(24);
   pdf.text(data.invoiceName, 20, 20);
+
+  // From Section
+  pdf.setFontSize(12);
+  pdf.text("From", 20, 40);
+  pdf.setFontSize(10);
+  pdf.text([data.fromName, data.fromEmail, data.fromAddress], 20, 45);
+
+  // Client Section
+  pdf.setFontSize(12);
+  pdf.text("Bill To", 20, 70);
+  pdf.setFontSize(10);
+  pdf.text([data.clientName, data.clientEmail, data.clientAddress], 20, 75);
+
+  // Invoice Details
+  pdf.setFontSize(10);
+  pdf.text(`Invoice Number: #${data.invoiceNumber}`, 120, 40);
+  pdf.text(
+    `Date: ${new Intl.DateTimeFormat("en-US", {
+      dateStyle: "long",
+    }).format(data.date)}`,
+    120,
+    45
+  );
+  pdf.text(`Due Date: ${data.dueDate} days`, 120, 50);
+
+  // Item table header
+  pdf.setFontSize(10);
+  pdf.setFont("helvetica", "bold");
+  pdf.text("Description", 20, 100);
+  pdf.text("Quantity", 100, 100);
+  pdf.text("Rate", 130, 100);
+  pdf.text("Total", 160, 100);
+
+  // draw header line
+  pdf.line(20, 102, 190, 102);
+
+  // actual values
+  pdf.setFont("helvetica", "normal");
+  pdf.text(data.invoiceItemDescription, 20, 110);
+  pdf.text(data.InvoiceItemQuantity.toString(), 100, 110);
+  pdf.text(
+    formatCurrency({
+      amount: data.InvoiceItemRate,
+      currency: data.currency as any,
+    }).toString(),
+    130,
+    110
+  );
+  pdf.text(
+    formatCurrency({
+      amount: data.total,
+      currency: data.currency as any,
+    }).toString(),
+    160,
+    110
+  );
+
+  // Total Section
+  pdf.line(20, 115, 190, 115);
+  pdf.line(20, 116, 190, 116);
+  pdf.setFont("helvetica", "bold");
+  pdf.text(`Total Amount: (${data.currency})`, 120, 130);
+  pdf.text(
+    formatCurrency({
+      amount: data.total,
+      currency: data.currency as any,
+    }),
+    160,
+    130
+  );
+
+  // note section
+  if (data.note) {
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(10);
+    pdf.text("Note:", 20, 150);
+    pdf.text(data.note, 20, 155, { maxWidth: 170 });
+  }
 
   // Generate pdf as buffer
   const pdfBuffer = Buffer.from(pdf.output("arraybuffer"));
