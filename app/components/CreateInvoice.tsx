@@ -125,7 +125,7 @@ export function CreateInvoice({
 
           <div className="grid md:grid-cols-2 gap-6 mb-6">
             <div>
-              <Label>From</Label>
+              <Label>Beneficiary</Label>
               <div className="space-y-2">
                 <Input
                   placeholder="Your Name / Company Name"

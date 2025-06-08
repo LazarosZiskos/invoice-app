@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Invoice App",
+  title: "BillWise - Invoice Management",
   description: "Create and manage your invoices with ease!",
 };
 
