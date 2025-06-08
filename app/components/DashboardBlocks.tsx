@@ -70,7 +70,7 @@ export async function DashboarBlocks() {
           <User className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="px-6">
-          <h2 className="text-2xl font-bold">+{data.length}</h2>
+          <h2 className="text-2xl font-bold">{data.length}</h2>
           <p className="text-sm text-muted-foreground">
             Based on the last 30 days{" "}
           </p>
@@ -84,7 +84,7 @@ export async function DashboarBlocks() {
           <CreditCard className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="px-6">
-          <h2 className="text-2xl font-bold">+{paidInvoices.length}</h2>
+          <h2 className="text-2xl font-bold">{paidInvoices.length}</h2>
           <p className="text-sm text-muted-foreground">
             Total Invoices who have been paid
           </p>
@@ -96,7 +96,7 @@ export async function DashboarBlocks() {
           <Activity className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="px-6">
-          <h2 className="text-2xl font-bold">+{openInvoices.length}</h2>
+          <h2 className="text-2xl font-bold">{openInvoices.length}</h2>
           <p className="text-sm text-muted-foreground">Total Open Invoices</p>
         </CardContent>
       </Card>
