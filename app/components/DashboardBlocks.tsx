@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Activity, CreditCard, DollarSign, User } from "lucide-react";
 import { prisma } from "../utils/db";
 import { requireUser } from "../utils/hooks";
+import { formatCurrency } from "../utils/formatCurrency";
 
 async function getData(userId: string) {
   const [data, openInvoices, paidInvoices] = await Promise.all([
@@ -55,11 +56,12 @@ export async function DashboarBlocks() {
         </CardHeader>
         <CardContent className="px-6">
           <h2 className="text-2xl font-bold">
-            € {data.reduce((acc, invoice) => acc + invoice.total, 0)}
+            {formatCurrency({
+              amount: data.reduce((acc, invoice) => acc + invoice.total, 0),
+              currency: "EUR",
+            })}
           </h2>
-          <p className="text-sm text-muted-foreground">
-            Based on the last 30 days{" "}
-          </p>
+          <p className="text-sm text-muted-foreground">Based on total volume</p>
         </CardContent>
       </Card>
       <Card>
@@ -86,18 +88,22 @@ export async function DashboarBlocks() {
         <CardContent className="px-6">
           <h2 className="text-2xl font-bold">{paidInvoices.length}</h2>
           <p className="text-sm text-muted-foreground">
-            Total Invoices who have been paid
+            Total Invoices which have been paid
           </p>
         </CardContent>
       </Card>
       <Card>
         <CardHeader className="flex flex-row items-center justify-between">
-          <CardTitle className="text-sm font-medium">Open Invoices</CardTitle>
+          <CardTitle className="text-sm font-medium">
+            Pending Invoices
+          </CardTitle>
           <Activity className="size-4 text-muted-foreground" />
         </CardHeader>
         <CardContent className="px-6">
           <h2 className="text-2xl font-bold">{openInvoices.length}</h2>
-          <p className="text-sm text-muted-foreground">Total Open Invoices</p>
+          <p className="text-sm text-muted-foreground">
+            Total Pending Invoices
+          </p>
         </CardContent>
       </Card>
     </div>
