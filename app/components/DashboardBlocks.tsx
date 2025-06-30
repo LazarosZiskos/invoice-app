@@ -57,7 +57,10 @@ export async function DashboarBlocks() {
         <CardContent className="px-6">
           <h2 className="text-2xl font-bold">
             {formatCurrency({
-              amount: data.reduce((acc, invoice) => acc + invoice.total, 0),
+              amount: data.reduce(
+                (acc: number, invoice) => acc + invoice.total,
+                0
+              ),
               currency: "EUR",
             })}
           </h2>
