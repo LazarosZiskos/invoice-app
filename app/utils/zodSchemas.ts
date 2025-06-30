@@ -24,4 +24,8 @@ export const invoiceSchema = z.object({
   invoiceItemDescription: z.string().min(1, "Description is required"),
   invoiceItemQuantity: z.number().min(1, "Quantity minimum is 1"),
   invoiceItemRate: z.number().min(1, "Min Rate 1"),
+  iban: z.string().min(10).max(27, "IBAN is 27 characters long"),
+  swift: z.string().min(8, "SWIFT code is 8 characters long"),
+  bic: z.string().min(8, "BIC code is 8 characters long"),
+  bankName: z.string().min(1),
 });

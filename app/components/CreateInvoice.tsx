@@ -190,6 +190,41 @@ export function CreateInvoice({
                 </p>
               </div>
             </div>
+            <div>
+              <Label>Bank Details</Label>
+              <div className="space-y-2">
+                <Input
+                  placeholder="Bank Name"
+                  name={fields.bankName.name}
+                  key={fields.bankName.key}
+                  defaultValue={fields.bankName.initialValue}
+                />
+                <p className="text-sm text-red-500">{fields.bankName.errors}</p>
+
+                <Input
+                  placeholder="IBAN"
+                  name={fields.iban.name}
+                  key={fields.iban.key}
+                  defaultValue={fields.iban.initialValue}
+                />
+                <p className="text-sm text-red-500">{fields.iban.errors}</p>
+
+                <Input
+                  placeholder="Swift Code"
+                  name={fields.swift.name}
+                  key={fields.swift.key}
+                  defaultValue={fields.swift.initialValue}
+                />
+                <p className="text-sm text-red-500">{fields.swift.errors}</p>
+                <Input
+                  placeholder="BIC"
+                  name={fields.bic.name}
+                  key={fields.bic.key}
+                  defaultValue={fields.bic.initialValue}
+                />
+                <p className="text-sm text-red-500">{fields.bic.errors}</p>
+              </div>
+            </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-2 mb-6">

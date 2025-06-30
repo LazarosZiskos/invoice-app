@@ -34,6 +34,10 @@ export async function GET(
       InvoiceItemRate: true,
       note: true,
       fromAddress: true,
+      bankName: true,
+      iban: true,
+      swift: true,
+      bic: true,
     },
   });
 
@@ -77,7 +81,7 @@ export async function GET(
   pdf.setFontSize(10);
   pdf.text(["IBAN:", "BANK NAME:", "SWIFT:", "BIC:"], 20, 210);
   pdf.text(
-    ["GR850140014001400140122", "ALPHA BANK", "GR0123", "AO1235"],
+    [data.iban ?? "", data.bankName ?? "", data.swift ?? "", data.bic ?? ""],
     50,
     210
   );

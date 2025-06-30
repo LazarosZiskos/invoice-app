@@ -109,6 +109,10 @@ model Invoice {
   updatedAt              DateTime      @updatedAt
   User                   User?         @relation(fields: [userId], references: [id])
   userId                 String?
+  bankName               String?
+  iban                   String?
+  swift                  String?
+  bic                    String?
 }
 
 enum InvoiceStatus {

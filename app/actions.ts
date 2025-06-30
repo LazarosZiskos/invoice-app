@@ -50,7 +50,7 @@ export async function createInvoice(prevstate: any, formData: FormData) {
       clientEmail: submission.value.clientEmail,
       clientName: submission.value.clientName,
       invoiceName: submission.value.invoiceName,
-      date: submission.value.date, //string
+      date: submission.value.date,
       dueDate: submission.value.dueDate,
       status: submission.value.status,
       total: submission.value.total,
@@ -63,6 +63,10 @@ export async function createInvoice(prevstate: any, formData: FormData) {
       InvoiceItemQuantity: submission.value.invoiceItemQuantity,
       InvoiceItemRate: submission.value.invoiceItemRate,
       note: submission.value.note,
+      bankName: submission.value.bankName,
+      swift: submission.value.swift,
+      bic: submission.value.bic,
+      iban: submission.value.iban,
       userId: session.user?.id,
     },
   });
