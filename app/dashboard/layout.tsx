@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { signOut } from "../utils/auth";
 import { prisma } from "../utils/db";
+import Image from "next/image";
+import billWiseLogo from "../../public/billwise-logo3.png";
 
 async function getUser(userId: string) {
   const data = await prisma.user.findUnique({
@@ -50,6 +52,11 @@ export default async function DashboardLayout({
           <div className="flex flex-col max-h-screen h-full gap-2">
             <div className="h-14 flex items-center border-b px-4 lg:h-[60px] lg:px-6">
               <Link href="/" className="flex items-center gap-2">
+                <Image
+                  src={billWiseLogo}
+                  alt="logo"
+                  className="size-10 rounded-xl"
+                />
                 <p className="text-2xl font-bold">
                   Bill<span className="text-blue-600">Wise</span>
                 </p>
