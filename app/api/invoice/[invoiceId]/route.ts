@@ -71,6 +71,17 @@ export async function GET(
   pdf.setFontSize(10);
   pdf.text([data.clientName, data.clientEmail, data.clientAddress], 20, 75);
 
+  // Bank Section
+  pdf.setFontSize(12);
+  pdf.text("Bank Details", 20, 205);
+  pdf.setFontSize(10);
+  pdf.text(["IBAN:", "BANK NAME:", "SWIFT:", "BIC:"], 20, 210);
+  pdf.text(
+    ["GR850140014001400140122", "ALPHA BANK", "GR0123", "AO1235"],
+    50,
+    210
+  );
+
   // Invoice Details
   pdf.setFontSize(10);
   pdf.text(`Invoice Number: #${data.invoiceNumber}`, 120, 40);
@@ -86,25 +97,25 @@ export async function GET(
   // Item table header
   pdf.setFontSize(10);
   pdf.setFont("helvetica", "bold");
-  pdf.text("Description", 20, 100);
-  pdf.text("Quantity", 100, 100);
-  pdf.text("Rate", 130, 100);
-  pdf.text("Total", 160, 100);
+  pdf.text("Description", 20, 120);
+  pdf.text("Quantity", 100, 120);
+  pdf.text("Rate", 130, 120);
+  pdf.text("Total", 160, 120);
 
   // draw header line
-  pdf.line(20, 102, 190, 102);
+  pdf.line(20, 122, 190, 122);
 
   // actual values
   pdf.setFont("helvetica", "normal");
-  pdf.text(data.invoiceItemDescription, 20, 110);
-  pdf.text(data.InvoiceItemQuantity.toString(), 100, 110);
+  pdf.text(data.invoiceItemDescription, 20, 130);
+  pdf.text(data.InvoiceItemQuantity.toString(), 100, 130);
   pdf.text(
     formatCurrency({
       amount: data.InvoiceItemRate,
       currency: data.currency as any,
     }).toString(),
     130,
-    110
+    130
   );
   pdf.text(
     formatCurrency({
@@ -112,29 +123,29 @@ export async function GET(
       currency: data.currency as any,
     }).toString(),
     160,
-    110
+    130
   );
 
   // Total Section
-  pdf.line(20, 115, 190, 115);
-  pdf.line(20, 116, 190, 116);
+  pdf.line(20, 135, 190, 135);
+  pdf.line(20, 136, 190, 136);
   pdf.setFont("helvetica", "bold");
-  pdf.text(`Total Amount: (${data.currency})`, 120, 130);
+  pdf.text(`Total Amount: (${data.currency})`, 120, 150);
   pdf.text(
     formatCurrency({
       amount: data.total,
       currency: data.currency as any,
     }),
     160,
-    130
+    150
   );
 
   // note section
   if (data.note) {
     pdf.setFont("helvetica", "normal");
     pdf.setFontSize(10);
-    pdf.text("Note:", 20, 150);
-    pdf.text(data.note, 20, 155, { maxWidth: 170 });
+    pdf.text("Note:", 20, 170);
+    pdf.text(data.note, 20, 175, { maxWidth: 170 });
   }
 
   // Generate pdf as buffer
