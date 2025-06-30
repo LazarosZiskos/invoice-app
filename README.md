@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![BillWise Hero Image](public/hero-image.png)
 
-## Getting Started
+# BillWise - Invoicing Platform
 
-First, run the development server:
+BillWise is a modern invoicing SaaS platform that lets users create, send, and manage invoices with ease. It streamlines payment tracking, supports client management, and provides real-time insights into revenue and billing activity.
 
+**[View deployed application here](https://invoice-app-pi-taupe.vercel.app/)**
+
+---
+
+## The Problem
+For years, invoicing non-EU bookings at my hotel has been a pain. Spreadsheets everywhere, manually tweaked Word docs, folders full of PDFs, and a growing list of reminders to follow up. It was clunky, time-consuming, and easy to mess up.
+
+So I finally thought:
+👉 Why not build something that actually works for me??
+
+So I did!
+
+---
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Technologies Used](#technologies-used)
+- [Contact Information](#contact-information)
+- [Resources](#resources)
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/LazarosZiskos/invoice-app.git
+   ```
+2. **Navigate to the project directory:**
+   ```bash
+   cd invoice-app
+   ```
+3. **Install dependencies:**
+   ```bash
+   pnpm install
+   ```
+
+## Usage
+
+**Run the development server:**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+👉 **Invoice Management** - Create, edit, delete invoices with dynamic fields.  
+👉 **PDF Generation** - Download invoices as high-quality PDFs.  
+👉 **Send Invoices by Email** - Automatically send invoices using Mailtrap.io.  
+👉 **Reminder Emails** - Notify clients of overdue payments.  
+👉 **Real-Time Analytics** - Graphs for revenue and invoice stats.  
+👉 **Client Management** - Save client info and link it to invoices.  
+👉 **Mark Paid/Unpaid** - Easily track payment status.  
+👉 **Modern UI/UX** - Fast, responsive, mobile-friendly interface.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Screenshots
 
-## Learn More
+**Hero Section**
 
-To learn more about Next.js, take a look at the following resources:
+![Hero](public/hero-image.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Technologies Used
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Tech Stack](https://skillicons.dev/icons?i=ts,react,next,tailwind,vercel,prisma,postgres,github,figma)
 
-## Deploy on Vercel
+- **Next.js** – React-based framework for fast web applications  
+- **Tailwind CSS** – Utility-first CSS framework  
+- **Prisma ORM** – Type-safe database access  
+- **Neon Postgres** – Cloud-hosted PostgreSQL database  
+- **Auth.js** – Secure authentication system  
+- **Zod** – Schema-based validation  
+- **Conform** – Accessible form validation and handling  
+- **Mailtrap.io** – Email testing and delivery  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contact Information:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+[![linkedin](https://skillicons.dev/icons?i=linkedin)](https://www.linkedin.com/in/lazaros-ziskos/)  
+[![github](https://skillicons.dev/icons?i=github)](https://github.com/LazarosZiskos)
+
+#### Made by Lazaros Ziskos
+
+#### Email: **ziskoslaz@gmail.com**
+
+#### Tel: **+30 6980228219**
+
+## Resources:
+- [Next.js](https://nextjs.org/docs)
+- [Tailwind CSS](https://tailwindcss.com/docs)
+- [Prisma](https://www.prisma.io/docs)
+- [Neon](https://neon.tech/docs)
+- [Auth.js](https://authjs.dev/)
+- [Zod](https://zod.dev/)
+- [Conform](https://conform.guide/)
+- [Mailtrap](https://mailtrap.io/)
+
+### Thank you for reading!
