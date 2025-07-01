@@ -24,8 +24,7 @@ export async function onboardUser(prevstate: any, formData: FormData) {
       id: session.user?.id,
     },
     data: {
-      firstName: submission.value.firstName,
-      lastName: submission.value.lastName,
+      name: submission.value.name,
       address: submission.value.address,
     },
   });

@@ -20,18 +20,12 @@ import { createInvoice } from "../actions";
 import { formatCurrency } from "../utils/formatCurrency";
 
 interface iAppProps {
-  firstName: string;
-  lastName: string;
+  name: string;
   address: string;
   email: string;
 }
 
-export function CreateInvoice({
-  address,
-  email,
-  firstName,
-  lastName,
-}: iAppProps) {
+export function CreateInvoice({ address, email, name }: iAppProps) {
   const [lastResult, action] = useActionState(createInvoice, undefined);
   const [form, fields] = useForm({
     lastResult,
@@ -131,7 +125,7 @@ export function CreateInvoice({
                   placeholder="Your Name / Company Name"
                   name={fields.fromName.name}
                   key={fields.fromName.key}
-                  defaultValue={firstName + " " + lastName}
+                  defaultValue={name}
                 />
                 <p className="text-sm text-red-500">{fields.fromName.errors}</p>
 
@@ -370,7 +364,7 @@ export function CreateInvoice({
 
           <div className="flex items-center justify-end mt-6">
             <div>
-              <SubmitButton title="Send Invoice to client" />
+              <SubmitButton title="Create Invoice" />
             </div>
           </div>
         </form>

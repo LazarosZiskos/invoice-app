@@ -22,7 +22,7 @@ export default async function Login() {
       <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
         <div className="absolute bottom-0 left-0 right-0 top-0 bg-[radial-gradient(circle_500px_at_50%_200px,#C9EBFF,transparent)]"></div>
       </div>
-      <div className="flex w-full h-screen px-8 items-center justify-center">
+      {/* <div className="flex w-full h-screen px-8 items-center justify-center">
         <Card className="max-w-sm px-4">
           <CardTitle>
             <h1 className="text-2xl font-bold">Login</h1>
@@ -51,6 +51,16 @@ export default async function Login() {
             </form>
           </CardContent>
         </Card>
+      </div> */}
+      <div>
+        <form
+          action={async () => {
+            "use server";
+            await signIn("google");
+          }}
+        >
+          <button type="submit">Signin With Google</button>
+        </form>
       </div>
     </>
   );

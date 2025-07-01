@@ -46,26 +46,14 @@ export default function OnboardingPage() {
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="flex flex-col gap-2">
-                <Label>First Name</Label>
+                <Label>Name</Label>
                 <Input
-                  name={fields.firstName.name}
-                  key={fields.firstName.key}
-                  defaultValue={fields.firstName.value}
+                  name={fields.name.name}
+                  key={fields.name.key}
+                  defaultValue={fields.name.value}
                   placeholder="John"
                 />
-                <p className="text-red-500 text-sm">
-                  {fields.firstName.errors}
-                </p>
-              </div>
-              <div className="flex flex-col gap-2">
-                <Label>Last Name</Label>
-                <Input
-                  name={fields.lastName.name}
-                  key={fields.lastName.key}
-                  defaultValue={fields.lastName.value}
-                  placeholder="Doe"
-                />
-                <p className="text-red-500 text-sm">{fields.lastName.errors}</p>
+                <p className="text-red-500 text-sm">{fields.name.errors}</p>
               </div>
             </div>
             <div className="grid gap-2">
