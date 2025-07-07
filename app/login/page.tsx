@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { auth, signIn } from "../utils/auth";
 import { redirect } from "next/navigation";
+import { BrowserWarning } from "../components/BrowserWarning";
 
 export default async function Login() {
   const session = await auth();
@@ -11,6 +12,9 @@ export default async function Login() {
 
   return (
     <>
+      {/* In-App Browser Warning */}
+      <BrowserWarning />
+
       <div className="relative min-h-screen w-full">
         {/* Background Grid + Radial Gradient */}
         <div className="absolute inset-0 -z-10 h-full w-full bg-white bg-[linear-gradient(to_right,#f0f0f0_1px,transparent_1px),linear-gradient(to_bottom,#f0f0f0_1px,transparent_1px)] bg-[size:6rem_4rem]">
@@ -28,6 +32,7 @@ export default async function Login() {
                 Sign in to manage your invoices
               </p>
             </CardHeader>
+
             <CardContent>
               <form
                 action={async () => {
@@ -70,8 +75,4 @@ export default async function Login() {
       </div>
     </>
   );
-}
-
-function Auth() {
-  throw new Error("Function not implemented.");
 }
