@@ -1,5 +1,4 @@
 import { requireUser } from "../utils/hooks";
-import { signOut } from "../utils/auth";
 import { DashboarBlocks } from "../components/DashboardBlocks";
 import { InvoiceGraph } from "../components/InvoiceGraph";
 import { RecentInvoices } from "../components/RecentInvoices";

@@ -10,7 +10,7 @@ import { Select, SelectItem, SelectTrigger } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { PopoverContent, PopoverTrigger } from "@radix-ui/react-popover";
 import { SelectContent, SelectValue } from "@radix-ui/react-select";
-import { CalendarIcon, Currency } from "lucide-react";
+import { CalendarIcon } from "lucide-react";
 import { useActionState, useState } from "react";
 import { SubmitButton } from "./SubmitButton";
 import { useForm } from "@conform-to/react";
